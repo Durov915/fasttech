@@ -1794,30 +1794,12 @@ body{
     </div>
 
     <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
-    <script>
-        document.getElementById("myForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
 
-            // Get form data
-            var name = document.getElementById("name").value;
-            var phone = document.getElementById("phone").value;
-            var phone = document.getElementById("email").value;
-            var phone = document.getElementById("message").value;
 
-            // Construct WhatsApp message link
-            var message = "Hi, this is " + name + ". My phone number is " + phone + ".";
+<script>
 
-            // Replace "your-phone-number" with your actual phone number in international format
-            var yourPhoneNumber = "+917226853408"; // Replace this with your phone number
 
-            var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(yourPhoneNumber) + "&text=" + encodeURIComponent(message);
-
-            // Open WhatsApp message link in a new tab
-            window.open(url);
-        });
-    </script>
-  <script>
-	  $(document).ready(function(){
+$(document).ready(function(){
 
      $('.fa-bars').click(function(){
         $(this).toggleClass('fa-times');
@@ -1874,27 +1856,54 @@ body{
     
 })(jQuery);
 
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-        $('.back-to-top').fadeIn('slow');
-    } else {
-        $('.back-to-top').fadeOut('slow');
-    }
-});
-$('.back-to-top').click(function () {
-    $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-    return false;
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.back-to-top').fadeIn('slow');
+        } else {
+            $('.back-to-top').fadeOut('slow');
+        }
+    });
+    $('.back-to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        return false;
+    });
+
+    $('.accordion-header').click(function(){
+        $('.accordion .accordion-body').slideUp(500);
+        $(this).next('.accordion-body').slideDown(500);
+        $('.accordion .accordion-header span').text('+');
+        $(this).children('span').text('-');
+    });
+
 });
 
-$('.accordion-header').click(function(){
-    $('.accordion .accordion-body').slideUp(500);
-    $(this).next('.accordion-body').slideDown(500);
-    $('.accordion .accordion-header span').text('+');
-    $(this).children('span').text('-');
-});
+</script>			    
+			    
 
-});
-  </script>
+			    
+<script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var phone = document.getElementById("email").value;
+            var phone = document.getElementById("message").value;
+
+            // Construct WhatsApp message link
+            var message = "Hi, this is " + name + ". My phone number is " + phone + ".";
+
+            // Replace "your-phone-number" with your actual phone number in international format
+            var yourPhoneNumber = "+917226853408"; // Replace this with your phone number
+
+            var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(yourPhoneNumber) + "&text=" + encodeURIComponent(message);
+
+            // Open WhatsApp message link in a new tab
+            window.open(url);
+        });
+    </script>
+
 </body>
 
 </html>
