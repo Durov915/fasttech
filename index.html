@@ -1795,6 +1795,23 @@ body{
 
     <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
 
+<script>
+    $(document).ready(function () {
+        $('.accordion-header').click(function () {
+            // Slide up all accordion bodies except the one clicked
+            $('.accordion-body').not($(this).next('.accordion-body')).slideUp(500);
+            
+            // Toggle slide for the clicked accordion body
+            $(this).next('.accordion-body').slideToggle(500);
+            
+            // Change the text of all accordion headers' spans to '+'
+            $('.accordion-header span').text('+');
+            
+            // Change the text of the clicked accordion header's span to '-' 
+            $(this).children('span').text('-');
+        });
+    });
+</script>
 
 <script>
 
